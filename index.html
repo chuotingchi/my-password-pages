@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>密碼保護頁面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    #container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    #protectedContent {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="login">
+      <h2>請輸入密碼</h2>
+      <input type="password" id="passwordInput" placeholder="輸入密碼">
+      <br>
+      <button onclick="checkPassword()">確認</button>
+      <div id="error"></div>
+    </div>
+
+    <div id="protectedContent">
+      chuotc.nicky@mail.edu.tw / Nicky960810
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+      const correctPassword = "1411220";
+      const errorDiv = document.getElementById("error");
+
+      if (password === correctPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        errorDiv.textContent = "密碼錯誤，請再試一次。";
+      }
+    }
+  </script>
+</body>
+</html>
